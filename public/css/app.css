@@ -11286,6 +11286,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.numbers {
+  font-size: 4rem;
+  font-weight: 900;
+}
+
 .app {
   background-color: #ddd;
   height: 100vh;

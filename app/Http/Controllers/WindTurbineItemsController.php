@@ -14,6 +14,7 @@ class WindTurbineItemsController extends Controller
      */
     public function index()
     {
+        // Return all items from the Model
         return WindTurbineItems::all();
     }
 

@@ -14,6 +14,18 @@ use App\Http\Controller\WindTurbineItemsController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+/*
+|
+| The list could also be retrieved from a database.
+| 
+| We could set this up with a controller that returns all the Windturbineitems from a 
+| corresponding Model.
+| View the app/http/controllers/WindTurbineItemsController.php file 
+| Route::get('/turbine_items', 'WindTurbineItemsController@index')
+|
+*/
+
+// I went for a simple function that returns an array or numbers 1 to 100
 Route::get('/turbine_items', function(){
 
     $windTurbineItems = array();

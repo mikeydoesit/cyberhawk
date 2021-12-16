@@ -5371,15 +5371,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 function CyberhawkApp() {
+  //Retrieving list from api/turbine_items
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return fetch("http://localhost:3000/api/turbine_items").then(function (res) {
+            return fetch("http://cyberhawktest-env.eba-chjjfdsj.us-east-2.elasticbeanstalk.com/api/turbine_items").then(function (res) {
               return res.json();
             }).then(function (data) {
+              //Saving the list to state
               var items = data;
               setInspectionData(items);
             });
@@ -5415,26 +5417,30 @@ function CyberhawkApp() {
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
       _useState10 = _slicedToArray(_useState9, 2),
       isMultipleOf5 = _useState10[0],
-      setIsMultipleOf5 = _useState10[1];
+      setIsMultipleOf5 = _useState10[1]; //Function to begin processing of list
+
 
   var handleClick = function handleClick() {
     var inspectionBtn = document.querySelector('.button');
-    var results = document.querySelector('.results');
+    var results = document.querySelector('.results'); //Remove inspection button
+
     inspectionBtn.style.opacity = 0;
     inspectionBtn.style.visibility = "hidden";
-    inspectionBtn.style.transform = "scale(0)";
-    setDisplayResults(true); // setCurrentNumber(inspectionData[8])
-    // console.log(inspectionData[8])
+    inspectionBtn.style.transform = "scale(0)"; // Show inspection results
+
+    setDisplayResults(true); // Loop through the turbine items items
 
     var _loop = function _loop(i) {
       setTimeout(function () {
-        setCurrentNumber(inspectionData[i]);
+        //Set the current number to the current value in the loop
+        setCurrentNumber(inspectionData[i]); //Check if current value is a multiple of 3
 
         if (inspectionData[i] % 3 == 0) {
           setIsMultipleOf3(true);
         } else {
           setIsMultipleOf3(false);
-        }
+        } //Check if current value is a multiple of 5
+
 
         if (inspectionData[i] % 5 == 0) {
           setIsMultipleOf5(true);
@@ -5447,8 +5453,6 @@ function CyberhawkApp() {
     for (var i = 0; i <= inspectionData.length; i++) {
       _loop(i);
     }
-
-    console.log('hi');
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
@@ -5517,7 +5521,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Message__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Message */ "./resources/js/components/Message.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
 
 
 
